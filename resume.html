@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Henry Tejada Deras">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 10px;
+                display: flex;
+                flex-direction: column;
+
+                font-family:'Calibri', 'Segoe UI', sans-serif;
+                font-size: 10px;
+            }
+
+            .main-content {
+                flex: 1; /* Expands to push footer down */
+            }
+
+            info {
+                display: flex;
+
+                text-align: left;
+                font-family:'Calibri', 'Segoe UI', sans-serif;
+                font-size: 8px;
+            }
+            
+            .break-text {
+                overflow-wrap: break-word;
+                word-break: break-word;
+            }
+
+            /* For Debugging Use Only */
+            .bounding-box {
+                border: 2px solid red;       /* The visible bounding box */
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="main-content">
+            <h1><center>Henry Tejada</center></h1>
+            <center>henry.n.tejada@gmail.com | www.linkedin.com/in/henry-neftaly-tejada-deras</center>
+            <div style="display: flex;">
+                <div style="width: 50%; padding: 10px;" class="break-text">
+                    <h2>Education</h2>
+                    <p>Franklin W. Olin College of Engineering | Needham, MA<br>
+                    <b>Bachelor's of Science in Electrical and Computer Engineering</b><br>
+                    GPA: 3.67</p>
+                    <br>
+                    <p>Lone Star College- North Harris | Houston, TX<br>
+                    <b>Associate's of Science in General Math and Science</b><br>
+                    GPA: 3.96</p>
+                    <br>
+                    <p>Spring Early College Academy | Houston, TX<br>
+                    <b>High School Diploma</b><br>
+                    GPA: 3.95</p>
+                </div>
+                <div style="width: 50%; padding: 10px;" class="break-text">
+                    <h2>Relevant Coursework</h2>
+                    • Principles of Integrated Engineering<br>
+                    • Computer Architecture<br>
+                    • Circuits<br>
+                    • Software Design<br>
+                    • Engineering Design<br>
+                    • Modeling and Simulation<br>
+                    <h2>Relevant Skills</h2>
+                    • KiCad Circuit Design<br>
+                    • MATLAB<br>
+                    • LT Spice<br>
+                    • PCB Soldering<br>
+                    • SolidWorks<br>
+                </div>
+            </div>
+            <div style="display: flex; padding: 10px;">
+                <h2>Projects</h2>
+                <br>
+                <h2>Experience</h2>
+            </div>
+        </div>
+        <info class="bounding-box">
+            <div style="display: flex; padding: 10px;">
+                <p>Resumé Principal Versión 3.0 (Preliminary) - Diciembre 29, 2025 a las 09:58</p>
+            </div>
+        </info>
+    </body>
+</html>
