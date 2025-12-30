@@ -15,7 +15,7 @@
                 flex-direction: column;
 
                 font-family:'Calibri', 'Segoe UI', sans-serif;
-                font-size: 10px;
+                font-size: 11px;
             }
 
             .main-content {
@@ -37,7 +37,29 @@
 
             /* For Debugging Use Only */
             .bounding-box {
-                border: 2px solid red;       /* The visible bounding box */
+                border: 1px dashed red;
+            }
+
+            h1, h2, p {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 14px;
+            }
+
+            ul.default-list {
+                margin-top: 0px;
+                margin-bottom: 0px;
+                padding-left: 0px;
+
+                list-style-type: disc;
+                list-style-position: inside;
             }
         </style>
     </head>
@@ -45,47 +67,67 @@
     <body>
         <div class="main-content">
             <h1><center>Henry Tejada</center></h1>
-            <center>henry.n.tejada@gmail.com | www.linkedin.com/in/henry-neftaly-tejada-deras</center>
-            <div style="display: flex;">
-                <div style="width: 50%; padding: 10px;" class="break-text">
+            <center>henry.n.tejada@gmail.com | www.linkedin.com/in/henry-neftaly-tejada-deras<!-- | https://h-tejadaderas.github.io/portfolio/ --></center>
+            <br>
+            <div style="display: flex; padding-top: 5px;">
+                <div style="width: 85%; padding-right: 2.5px; flex-direction: column" class="break-text">
                     <h2>Education</h2>
-                    <p>Franklin W. Olin College of Engineering | Needham, MA<br>
+                    <p>Franklin W. Olin College of Engineering | Needham, MA | GPA: 3.67<br>
                     <b>Bachelor's of Science in Electrical and Computer Engineering</b><br>
-                    GPA: 3.67</p>
+                    Coursework: Principles of Integrated Engineering, Computer Architecture, Circuits, Software Design, Engineering Design, Modeling and Simulation</p>
                     <br>
-                    <p>Lone Star College- North Harris | Houston, TX<br>
-                    <b>Associate's of Science in General Math and Science</b><br>
-                    GPA: 3.96</p>
+                    <p>Lone Star College- North Harris | Houston, TX | GPA: 3.96<br>
+                    <b>Associate's of Science in General Math and Science</b></p>
                     <br>
-                    <p>Spring Early College Academy | Houston, TX<br>
-                    <b>High School Diploma</b><br>
-                    GPA: 3.95</p>
+                    <p>Spring Early College Academy | Houston, TX | GPA: 3.95<br>
+                    <b>High School Diploma</b></p>
                 </div>
-                <div style="width: 50%; padding: 10px;" class="break-text">
-                    <h2>Relevant Coursework</h2>
-                    • Principles of Integrated Engineering<br>
-                    • Computer Architecture<br>
-                    • Circuits<br>
-                    • Software Design<br>
-                    • Engineering Design<br>
-                    • Modeling and Simulation<br>
+                <div style="width: 15%; padding-left: 2.5px; flex-direction: column" class="break-text">
                     <h2>Relevant Skills</h2>
-                    • KiCad Circuit Design<br>
-                    • MATLAB<br>
-                    • LT Spice<br>
-                    • PCB Soldering<br>
-                    • SolidWorks<br>
+                        <ul class="default-list">
+                            <li>KiCad Circuit Design</li>
+                            <li>MATLAB</li>
+                            <li>LT Spice</li>
+                            <li>PCB Soldering</li>
+                            <li>SolidWorks</li>
+                            <li>Python</li>
+                            <li>Microsoft Office</li>
+                        </ul>
                 </div>
             </div>
-            <div style="display: flex; padding: 10px;">
+            <br>
+            <div style="display: flex; padding-top: 5px; flex-direction: column">
                 <h2>Projects</h2>
+                <ul class="default-list">
+                    <li><b>Disk Golf Disk Cleaner</b> - Description</li>
+                    <li><b>STM32 Transition Development PCB</b> - Description</li>
+                    <li><b>Brakes Board Modifications</b> - Modified a circuit board’s schematics using KiCad that monitors a car’s motor current and brake pedal status, for safety reasons, to improve reliability.</li>
+                    <li><b>Texture Measurement Device</b> - Created a circuit that measured the roughness of a surface based on the scattering of light emitted from the circuit.</li>
+                    <li><b>RV32I RISC-V Processor</b> - Description</li>
+                    <li><b>Tanks Game Replica</b> - Description</li>
+                    <li><b>Line Following Robot</b> - Description</li>
+                </ul>
                 <br>
                 <h2>Experience</h2>
+                <p><b>Process Engineering Intern</b> | TTM Technologies - Advanced Manufacturing Group | Stafford Springs, CT | May 2025 - August 2025</p>
+                <ul class="default-list">
+                    <li></li>
+                </ul>
+                <br>
+                <p><b>Co-Electrical Subsystem Lead</b> | Olin Electric Motorsports | Needham, MA | May 2025 - Present</p>
+                <ul class="default-list">
+                    <li></li>
+                </ul>
+                <br>
+                <p><b>Utility</b> | Rebecca's Culinary Group | Needham, MA | September 2024 - Present</p>
+                <ul class="default-list">
+                    <li></li>
+                </ul>
             </div>
         </div>
-        <info class="bounding-box">
-            <div style="display: flex; padding: 10px;">
-                <p>Resumé Principal Versión 3.0 (Preliminary) - Diciembre 29, 2025 a las 09:58</p>
+        <info>
+            <div style="display: flex; padding: 0px;">
+                <p>Resumé Principal Versión 3.0 (Preliminary) - Diciembre 29, 2025 a las 20:51</p>
             </div>
         </info>
     </body>
