@@ -1,0 +1,58 @@
+name: Export Resume
+# Made by Microsoft Copilot 05-16-2026
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+
+      - name: Install Playwright Browsers
+        run: |
+          npx playwright install --with-deps chromium
+
+      - name: Generate PDF with Playwright (Letter size)
+        run: |
+          node << 'EOF'
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch();
+            const page = await browser.newPage();
+
+            const htmlPath = process.env.GITHUB_WORKSPACE + '/resume.html';
+            const pdfPath = process.env.GITHUB_WORKSPACE + '/resume.pdf';
+
+            await page.goto('file://' + htmlPath, { waitUntil: 'networkidle' });
+
+            await page.pdf({
+              path: pdfPath,
+              format: 'letter',
+              margin: { top: 0, bottom: 0, left: 0, right: 0 },
+              printBackground: true
+            });
+
+            await browser.close();
+          })();
+          EOF
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdf
+          path: ${{ github.workspace }}/resume.pdf
