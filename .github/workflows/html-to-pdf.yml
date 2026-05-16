@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: resume-pdf
-          path: ${{ github.event.repository.name }}/resume.pdf
+          path: ${{ github.workspace }}/resume.pdf
