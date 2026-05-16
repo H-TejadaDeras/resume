@@ -23,8 +23,8 @@ jobs:
 
       - name: Convert HTML to PDF (no margins)
         run: |
-          HTML_PATH="file://$PWD/${{ github.event.repository.name }}/resume.html"
-          PDF_PATH="${{ github.event.repository.name }}/resume.pdf"
+          HTML_PATH="${GITHUB_WORKSPACE}/resume.html"
+          PDF_PATH="${GITHUB_WORKSPACE}/resume.pdf"  
 
           wkhtmltopdf \
             -T 0 -B 0 -L 0 -R 0 \
