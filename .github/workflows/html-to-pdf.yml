@@ -3,7 +3,6 @@ name: Export Resume
 
 on:
   push:
-    # branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -13,23 +12,44 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          persist-credentials: false
+          node-version: 24
 
-      - name: Install wkhtmltopdf
+      - name: Install Playwright
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wkhtmltopdf
+          npm init -y
+          npm install playwright
 
-      - name: Convert HTML to PDF (no margins)
+      - name: Install Playwright Browsers
         run: |
-          HTML_PATH="${GITHUB_WORKSPACE}/resume.html"
-          PDF_PATH="${GITHUB_WORKSPACE}/resume.pdf"  
+          npx playwright install --with-deps chromium
 
-          wkhtmltopdf \
-            -T 0 -B 0 -L 0 -R 0 \
-            "$HTML_PATH" \
-            "$PDF_PATH"
+      - name: Generate PDF with Playwright (Letter size)
+        run: |
+          node << 'EOF'
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch();
+            const page = await browser.newPage();
+
+            const htmlPath = process.env.GITHUB_WORKSPACE + '/resume.html';
+            const pdfPath = process.env.GITHUB_WORKSPACE + '/resume.pdf';
+
+            await page.goto('file://' + htmlPath, { waitUntil: 'networkidle' });
+
+            await page.pdf({
+              path: pdfPath,
+              format: 'letter',
+              margin: { top: 0, bottom: 0, left: 0, right: 0 },
+              printBackground: true
+            });
+
+            await browser.close();
+          })();
+          EOF
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
